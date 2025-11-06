@@ -1,7 +1,12 @@
 # class Store:
 
 
-class Book:
+class Item:
+    def __init__(self, itemName, id):
+        self.itemName = itemName
+        self.id = id
+
+class Book(Item):
     def __init__(self, title, author, id):
         self.title = title
         self. author = author
@@ -12,11 +17,12 @@ class Inventory:
     def __init__(self):
         self.inventory = {}
     
-    def add_to_inventory(self, book):
-        if book.title not in self.inventory:
-            self.inventory[book.title] = 1
+    def add_to_inventory(self, item):
+        if item.id not in self.inventory:
+            self.inventory[item.id] = 1
         else:
-            self.inventory[book.title] += 1
+            self.inventory[item.id] += 1
+            
       
 theBible = Book("The Holy Bible", "God", "0001")
 warAndPeace = Book("War and Peace", "Leo Tolstoy", "0002")
@@ -30,6 +36,8 @@ catcherInTheRye = Book("The Catcher in the Rye", "J.D. Salinger", "0009")
 hobbit = Book("The Hobbit", "J.R.R. Tolkien", "0010")
 odyssey = Book("The Odyssey", "Homer", "0011")
 divineComedy = Book("The Divine Comedy", "Dante Alighieri", "0012")
+
+bagel = Item("Bagel", "0013")
 
 myInventory = Inventory()
 
@@ -49,5 +57,8 @@ myInventory.add_to_inventory(hobbit)
 myInventory.add_to_inventory(odyssey)
 myInventory.add_to_inventory(divineComedy)
 myInventory.add_to_inventory(divineComedy)
+
+myInventory.add_to_inventory(bagel)
+
 
 print(myInventory.inventory)
