@@ -9,7 +9,13 @@ class Item:
 class Book(Item):
     def __init__(self, title, author, id):
         self.title = title
-        self. author = author
+        self.author = author
+        self.id = id
+
+class Magazine(Item):
+    def __init__(self, name, issue, id):
+        self.name = name
+        self.issue = issue
         self.id = id
     
     
@@ -23,7 +29,7 @@ class Inventory:
         else:
             self.inventory[item.id] += 1
             
-      
+
 theBible = Book("The Holy Bible", "God", "0001")
 warAndPeace = Book("War and Peace", "Leo Tolstoy", "0002")
 mobyDick = Book("Moby Dick", "Herman Melville", "0003")
@@ -38,6 +44,8 @@ odyssey = Book("The Odyssey", "Homer", "0011")
 divineComedy = Book("The Divine Comedy", "Dante Alighieri", "0012")
 
 bagel = Item("Bagel", "0013")
+
+timeMagazine = Magazine("TIME", "January 2025", "0014")
 
 myInventory = Inventory()
 
@@ -59,6 +67,6 @@ myInventory.add_to_inventory(divineComedy)
 myInventory.add_to_inventory(divineComedy)
 
 myInventory.add_to_inventory(bagel)
-
+myInventory.add_to_inventory(timeMagazine)
 
 print(myInventory.inventory)
