@@ -17,6 +17,12 @@ class Magazine(Item):
         self.name = name
         self.issue = issue
         self.id = id
+
+class DVD(Item):
+    def __init__(self, title, runtime, id):
+        self.title = title
+        self.runtime = runtime
+        self.id = id
     
     
 class Inventory:
@@ -44,8 +50,8 @@ odyssey = Book("The Odyssey", "Homer", "0011")
 divineComedy = Book("The Divine Comedy", "Dante Alighieri", "0012")
 
 bagel = Item("Bagel", "0013")
-
 timeMagazine = Magazine("TIME", "January 2025", "0014")
+theMatrix = DVD("The Matrix", "136 minutes", "0015")
 
 myInventory = Inventory()
 
@@ -68,5 +74,6 @@ myInventory.add_to_inventory(divineComedy)
 
 myInventory.add_to_inventory(bagel)
 myInventory.add_to_inventory(timeMagazine)
+myInventory.add_to_inventory(theMatrix)
 
 print(myInventory.inventory)
